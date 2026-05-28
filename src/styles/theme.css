@@ -179,3 +179,37 @@
     line-height: 1.5;
   }
 }
+
+@layer components {
+  .offer-content {
+    color: #374151;
+    font-size: 0.95rem;
+    line-height: 1.75;
+  }
+
+  .offer-content > h2:first-child {
+    display: none;
+  }
+
+  .offer-content h3 {
+    color: #111827;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.35;
+    margin: 2rem 0 0.75rem;
+  }
+
+  .offer-content p {
+    margin: 0 0 1rem;
+  }
+
+  .offer-content ul {
+    list-style: disc;
+    margin: 0 0 1.25rem 1.25rem;
+    padding: 0;
+  }
+
+  .offer-content li {
+    margin: 0.35rem 0;
+  }
+}

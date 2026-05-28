@@ -1,12 +1,28 @@
 import { useState } from 'react';
-import { ChevronDown, ChevronUp, BarChart3, TrendingUp, Database, CheckCircle2 } from 'lucide-react';
+import {
+  BarChart3,
+  CheckCircle2,
+  ChevronDown,
+  ChevronUp,
+  Database,
+  MapPin,
+  Phone,
+  TrendingUp,
+} from 'lucide-react';
 import { ImageWithFallback } from './components/figma/ImageWithFallback';
+import offerHtml from '../../offer.txt?raw';
+
+const executorName = 'Петров Роман Сергеевич';
+const companyInn = '772881585721';
+const companyAddress = 'Москва, Ленинградский проспект, 80, корп. 21, 125315';
+const companyPhoneHref = 'tel:+79652814535';
+const companyPhoneLabel = '+7 (965) 281-45-35';
 
 export default function App() {
   const [offerExpanded, setOfferExpanded] = useState(false);
 
   return (
-    <div className="size-full overflow-y-auto bg-white">
+    <div className="min-h-screen bg-white">
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -21,9 +37,9 @@ export default function App() {
               <a href="#offer" className="text-gray-600 hover:text-blue-600 transition-colors">Оферта</a>
               <a href="#contact" className="text-gray-600 hover:text-blue-600 transition-colors">Контакты</a>
             </nav>
-            <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+            <a href="#contact" className="inline-flex items-center justify-center whitespace-nowrap bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
               Связаться
-            </button>
+            </a>
           </div>
         </div>
       </header>
@@ -60,7 +76,7 @@ export default function App() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <section id="services" className="scroll-mt-24 py-14 md:py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold text-center text-gray-900 mb-4">Наши услуги</h2>
           <p className="text-xl text-gray-600 text-center mb-16 max-w-3xl mx-auto">
@@ -144,7 +160,7 @@ export default function App() {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <section id="pricing" className="scroll-mt-24 py-14 md:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold text-center text-gray-900 mb-4">Прайс-лист</h2>
           <p className="text-xl text-gray-600 text-center mb-16 max-w-3xl mx-auto">
@@ -193,14 +209,14 @@ export default function App() {
             </div>
 
             {/* Professional Plan */}
-            <div className="bg-white rounded-2xl shadow-xl p-8 border-2 border-blue-600 relative transform scale-105">
+            <div className="bg-white rounded-2xl shadow-xl p-8 border-2 border-blue-600 relative md:transform md:scale-105">
               <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
                 Популярный
               </div>
               
               <div className="mb-8">
                 <h3 className="text-2xl font-semibold text-gray-900 mb-2">Профессиональный</h3>
-                <p className="text-gray-600 mb-4">Для среднег�� бизнеса</p>
+                <p className="text-gray-600 mb-4">Для среднего бизнеса</p>
                 <div className="flex items-baseline gap-2">
                   <span className="text-5xl font-bold text-gray-900">350 000</span>
                   <span className="text-xl text-gray-600">₽</span>
@@ -291,7 +307,7 @@ export default function App() {
 
           <div className="mt-12 text-center">
             <p className="text-gray-600 mb-4">
-              Нужно индивидуальное решение? Мы готовы обсуди��ь ваш проект.
+              Нужно индивидуальное решение? Мы готовы обсудить ваш проект.
             </p>
             <button className="text-blue-600 font-semibold hover:underline">
               Запросить индивидуальное предложение →
@@ -301,13 +317,14 @@ export default function App() {
       </section>
 
       {/* Offer Section */}
-      <section id="offer" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <section id="offer" className="scroll-mt-24 py-14 md:py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">Публичная оферта</h2>
           
           <div className="bg-white border-2 border-gray-200 rounded-2xl overflow-hidden">
             <button
               onClick={() => setOfferExpanded(!offerExpanded)}
+              aria-expanded={offerExpanded}
               className="w-full px-8 py-6 flex items-center justify-between hover:bg-gray-50 transition-colors"
             >
               <div className="text-left">
@@ -327,89 +344,7 @@ export default function App() {
 
             {offerExpanded && (
               <div className="px-8 pb-8 border-t border-gray-200">
-                <div className="prose max-w-none pt-6">
-                  <h4 className="text-xl font-semibold text-gray-900 mb-4">1. Общие положения</h4>
-                  <p className="text-gray-700 mb-4">
-                    Настоящий договор является публичной офертой ООО "ДатаКонсалт" (далее - Исполнитель) 
-                    и содержит все существенные условия оказания услуг по аналитике данных.
-                  </p>
-
-                  <h4 className="text-xl font-semibold text-gray-900 mb-4">2. Предмет договора</h4>
-                  <p className="text-gray-700 mb-4">
-                    2.1. Исполнитель обязуется оказать Заказчику услуги по аналитике данных в соответствии 
-                    с выбранным тарифным планом, а Заказчик обязуется принять и оплатить эти услуги.
-                  </p>
-                  <p className="text-gray-700 mb-4">
-                    2.2. Состав услуг определяется выбранным тарифным планом: Базовый, Профессиональный 
-                    или Корпоративный.
-                  </p>
-
-                  <h4 className="text-xl font-semibold text-gray-900 mb-4">3. Стоимость услуг</h4>
-                  <p className="text-gray-700 mb-4">
-                    3.1. Стоимость услуг указана в разделе "Прайс-лист" и включает НДС 20%.
-                  </p>
-                  <p className="text-gray-700 mb-4">
-                    3.2. Базовый пакет: 150 000 рублей<br />
-                    3.3. Профессиональный пакет: 350 000 рублей<br />
-                    3.4. Корпоративный пакет: 750 000 рублей
-                  </p>
-
-                  <h4 className="text-xl font-semibold text-gray-900 mb-4">4. Порядок оплаты</h4>
-                  <p className="text-gray-700 mb-4">
-                    4.1. Оплата производится в следующем порядке: 50% предоплата при заключении договора, 
-                    50% по завершении работ.
-                  </p>
-                  <p className="text-gray-700 mb-4">
-                    4.2. Оплата осуществляется на расчетный счет Исполнителя по реквизитам, указанным в счете.
-                  </p>
-
-                  <h4 className="text-xl font-semibold text-gray-900 mb-4">5. Сроки выполнения</h4>
-                  <p className="text-gray-700 mb-4">
-                    5.1. Сроки выполнения работ указаны в описании каждого тарифного плана и начинают 
-                    исчисляться с момента получения предоплаты и всех необходимых данных от Заказчика.
-                  </p>
-
-                  <h4 className="text-xl font-semibold text-gray-900 mb-4">6. Права и обязанности сторон</h4>
-                  <p className="text-gray-700 mb-4">
-                    6.1. Исполнитель обязуется выполнить работы качественно и в установленные сроки.
-                  </p>
-                  <p className="text-gray-700 mb-4">
-                    6.2. Заказчик обязуется предоставить полный доступ к данным и своевременно отвечать 
-                    на запросы Исполнителя.
-                  </p>
-                  <p className="text-gray-700 mb-4">
-                    6.3. Исполнитель гарантирует конфиденциальность полученных данных.
-                  </p>
-
-                  <h4 className="text-xl font-semibold text-gray-900 mb-4">7. Ответственность сторон</h4>
-                  <p className="text-gray-700 mb-4">
-                    7.1. За нарушение сроков выполнения работ Исполнитель выплачивает пени в размере 0,1% 
-                    от стоимости услуг за каждый день просрочки.
-                  </p>
-                  <p className="text-gray-700 mb-4">
-                    7.2. За нарушение сроков оплаты Заказчик выплачивает пени в размере 0,1% от суммы 
-                    задолженности за каждый день просрочки.
-                  </p>
-
-                  <h4 className="text-xl font-semibold text-gray-900 mb-4">8. Порядок приемки работ</h4>
-                  <p className="text-gray-700 mb-4">
-                    8.1. После завершения работ Исполнитель направляет Заказчику акт выполненных работ.
-                  </p>
-                  <p className="text-gray-700 mb-4">
-                    8.2. Заказчик обязан в течение 5 рабочих дней подписать акт или направить 
-                    мотивированный отказ.
-                  </p>
-
-                  <h4 className="text-xl font-semibold text-gray-900 mb-4">9. Прочие условия</h4>
-                  <p className="text-gray-700 mb-4">
-                    9.1. Договор вступает в силу с момента акцепта оферты (оплаты услуг или подписания 
-                    договора).
-                  </p>
-                  <p className="text-gray-700 mb-4">
-                    9.2. Все споры решаются путем переговоров, при недостижении согласия - в суде по 
-                    месту нахождения Исполнителя.
-                  </p>
-                </div>
+                <div className="offer-content pt-6" dangerouslySetInnerHTML={{ __html: offerHtml }} />
               </div>
             )}
           </div>
@@ -417,7 +352,7 @@ export default function App() {
       </section>
 
       {/* Footer */}
-      <footer id="contact" className="bg-gray-900 text-white py-16 px-4 sm:px-6 lg:px-8">
+      <footer id="contact" className="scroll-mt-24 bg-gray-900 text-white py-14 md:py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             {/* Company Info */}
@@ -429,10 +364,15 @@ export default function App() {
               <p className="text-gray-400 mb-6 max-w-md">
                 Профессиональные консалтинговые услуги в области аналитики данных для бизнеса любого масштаба.
               </p>
-              <div className="space-y-2 text-gray-400">
-                <p>📧 info@dataconsult.ru</p>
-                <p>📞 +7 (495) 123-45-67</p>
-                <p>📍 Москва, ул. Примерная, д. 123, офис 456</p>
+              <div className="space-y-3 text-gray-400">
+                <a href={companyPhoneHref} className="flex items-center gap-3 hover:text-blue-400 transition-colors">
+                  <Phone className="w-5 h-5 text-blue-400 flex-shrink-0" />
+                  <span>{companyPhoneLabel}</span>
+                </a>
+                <p className="flex items-start gap-3">
+                  <MapPin className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
+                  <span>{companyAddress}</span>
+                </p>
               </div>
             </div>
 
@@ -453,39 +393,25 @@ export default function App() {
               <ul className="space-y-3 text-gray-400">
                 <li>Пн-Пт: 9:00 - 18:00</li>
                 <li>Сб-Вс: Выходной</li>
-                <li className="pt-2">
-                  <a href="#" className="text-blue-400 hover:text-blue-300 transition-colors">
-                    Написать в Telegram →
-                  </a>
-                </li>
               </ul>
             </div>
           </div>
 
           {/* Legal Info */}
           <div className="border-t border-gray-800 pt-8">
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="text-sm text-gray-400 space-y-2">
-                <p className="font-semibold text-gray-300">Юридическая информация:</p>
-                <p>ООО "ДатаКонсалт"</p>
-                <p>ИНН: 7701234567</p>
-                <p>КПП: 770101001</p>
-                <p>ОГРН: 1234567890123</p>
-                <p>Юридический адрес: 123456, г. Москва, ул. Примерная, д. 123, офис 456</p>
-              </div>
-              
-              <div className="text-sm text-gray-400 space-y-2">
-                <p className="font-semibold text-gray-300">Банковские реквизиты:</p>
-                <p>Р/с: 40702810400000001234</p>
-                <p>К/с: 30101810400000000225</p>
-                <p>БИК: 044525225</p>
-                <p>Банк: ПАО "Сбербанк России" г. Москва</p>
-                <p className="pt-2">
-                  <a href="#" className="text-blue-400 hover:text-blue-300 transition-colors">
-                    Политика конфиденциальности
-                  </a>
-                </p>
-              </div>
+            <div className="max-w-3xl text-sm text-gray-400 space-y-2">
+              <p className="font-semibold text-gray-300">Реквизиты исполнителя</p>
+              <p>Исполнитель: {executorName}</p>
+              <p>
+                Статус: физическое лицо, применяющее специальный налоговый режим
+                «Налог на профессиональный доход» (самозанятый)
+              </p>
+              <p>ИНН: {companyInn}</p>
+              <p>Адрес для корреспонденции: {companyAddress}</p>
+              <p>Телефон: {companyPhoneLabel}</p>
+              <p className="pt-2">
+                После оплаты Исполнитель формирует чек в сервисе ФНС «Мой налог» и направляет его Заказчику.
+              </p>
             </div>
 
             <div className="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400 text-sm">
