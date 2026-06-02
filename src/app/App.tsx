@@ -14,7 +14,7 @@ import offerHtml from '../../offer.txt?raw';
 
 const executorName = 'Петров Роман Сергеевич';
 const companyInn = '774316281180';
-const companyAddress = 'АКАДЕМИКА ВОЛГИНА УЛИЦА Д25 КОРП2 КВ138';
+const companyAddress = 'Moscow, Presnenskaya Embankment, 12';
 const companyPhoneHref = 'tel:+79255287641';
 const companyPhoneLabel = '+79255287641';
 
