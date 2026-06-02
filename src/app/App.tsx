@@ -12,7 +12,7 @@ import {
 import { ImageWithFallback } from './components/figma/ImageWithFallback';
 import offerHtml from '../../offer.txt?raw';
 
-const executorName = 'Высоцкий Егор Максимович;
+const executorName = 'Высоцкий Егор Максимович';
 const companyInn = '774316281180';
 const companyAddress = 'Москва, Пресненская набережная, 12';
 const companyPhoneHref = 'tel:+79255287641';
