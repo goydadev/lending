@@ -13,10 +13,10 @@ import { ImageWithFallback } from './components/figma/ImageWithFallback';
 import offerHtml from '../../offer.txt?raw';
 
 const executorName = 'Петров Роман Сергеевич';
-const companyInn = '772881585721';
-const companyAddress = 'Москва, Ленинградский проспект, 80, корп. 21, 125315';
-const companyPhoneHref = 'tel:+79652814535';
-const companyPhoneLabel = '+7 (965) 281-45-35';
+const companyInn = '774316281180';
+const companyAddress = 'АКАДЕМИКА ВОЛГИНА УЛИЦА Д25 КОРП2 КВ138';
+const companyPhoneHref = 'tel:+79255287641';
+const companyPhoneLabel = '+79255287641';
 
 export default function App() {
   const [offerExpanded, setOfferExpanded] = useState(false);
