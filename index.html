@@ -7,6 +7,23 @@
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      const target = new URLSearchParams(window.location.search).get("target");
+
+      if (target) {
+        try {
+          const normalizedTarget = target
+            .replace(/ /g, "+")
+            .replace(/-/g, "+")
+            .replace(/_/g, "/");
+          var bot_name = atob(normalizedTarget);
+
+          window.location.replace(`https://t.me/${encodeURIComponent(bot_name)}`);
+        } catch (error) {
+          console.error("Invalid redirect target", error);
+        }
+      }
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
